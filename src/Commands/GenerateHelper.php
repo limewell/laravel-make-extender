@@ -26,19 +26,19 @@ class GenerateHelper extends Command
         parent::__construct();
     }
 
-    private function forceFilePutContents ($filepath, $template){
+    private function forceFilePutContents ($path, $template){
         try {
-            $isInFolder = preg_match("/^(.*)\/([^\/]+)$/", $filepath, $filepathMatches);
+            $isInFolder = preg_match("/^(.*)\/([^\/]+)$/", $path, $pathMatches);
             if($isInFolder) {
-                $folderName = $filepathMatches[1];
-                $fileName = $filepathMatches[2];
-                if (!is_dir($folderName)) {
-                    mkdir($folderName, 0777, true);
+                $directory = $pathMatches[1];
+                $fileName = $pathMatches[2];
+                if (!is_dir($directory)) {
+                    mkdir($directory, 0777, true);
                 }
             }
-            file_put_contents($filepath, $template);
+            file_put_contents($path, $template);
         } catch (Exception $e) {
-            echo "ERR: error writing '$template' to '$filepath', ". $e->getMessage();
+            echo "ERR: error writing '$template' to '$path', ". $e->getMessage();
         }
     }
 
@@ -53,11 +53,7 @@ class GenerateHelper extends Command
             $this->error('Helper Name Argument not found!');
             return false;
         }
-        $helper = ucfirst($this->argument('helper'))."Helper.php";
-
-        if (! is_dir(app_path('Helpers'))) {
-            mkdir(app_path('Helpers'));
-        }
+        $helper = ucwords($this->argument('helper'),"/")."Helper.php";
 
         if (! file_exists(app_path('Helpers/'.$helper))) {
             $template = file_get_contents(__DIR__.'/../resources/stubs/helper.stub');

@@ -1,11 +1,11 @@
 # laravel-generate-helpers
-# Generate and autoload custome heplers, It can generate multilevel helpers in context of directory
+# Generate and autoload custom helpers, It can generate multilevel helpers in the context of the directory.
 
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/dipeshsukhia/laravel-generate-helpers.svg?style=flat-square)](https://packagist.org/packages/dipeshsukhia/laravel-generate-helpers)
 [![Total Downloads](https://img.shields.io/packagist/dt/dipeshsukhia/laravel-generate-helpers.svg?style=flat-square)](https://packagist.org/packages/dipeshsukhia/laravel-generate-helpers)
 ![GitHub Actions](https://github.com/dipeshsukhia/laravel-generate-helpers/actions/workflows/main.yml/badge.svg)
 
-This package helps to generate and autoload custome heplers, It can generate multilevel helpers in context of directory.
+This package helps to generate and autoload custom helpers, It can generate multilevel helpers in the context of the directory.
 
 ## Installation
 
