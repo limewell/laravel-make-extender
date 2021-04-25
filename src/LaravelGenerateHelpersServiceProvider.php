@@ -2,15 +2,33 @@
 
 namespace DipeshSukhia\LaravelGenerateHelpers;
 
+use DipeshSukhia\LaravelGenerateHelpers\Commands\GenerateHelper;
 use Illuminate\Support\ServiceProvider;
 
 class LaravelGenerateHelpersServiceProvider extends ServiceProvider
 {
+    private function getHelpers($dir, &$helpers = [])
+    {
+        if(is_dir($dir)) {
+            foreach (scandir($dir) as $inode) {
+                $path = realpath($dir . DIRECTORY_SEPARATOR . $inode);
+                if (!is_dir($path)) {
+                    !(pathinfo($path, PATHINFO_EXTENSION) === "php") ? : array_push($helpers, $path);
+                } elseif (!in_array($inode, [".", ".."])) {
+                    Self::getHelpers($path, $helpers);
+                }
+            }
+        }
+        return $helpers;
+    }
     /**
      * Bootstrap the application services.
      */
     public function boot()
     {
+        array_map(function($helper){
+            require_once($helper);
+        },Self::getHelpers(app_path('Helpers')));
         /*
          * Optional methods to load your package assets
          */
@@ -20,9 +38,9 @@ class LaravelGenerateHelpersServiceProvider extends ServiceProvider
         // $this->loadRoutesFrom(__DIR__.'/routes.php');
 
         if ($this->app->runningInConsole()) {
-            $this->publishes([
+            /*$this->publishes([
                 __DIR__.'/../config/config.php' => config_path('laravel-generate-helpers.php'),
-            ], 'config');
+            ], 'config');*/
 
             // Publishing the views.
             /*$this->publishes([
@@ -40,7 +58,9 @@ class LaravelGenerateHelpersServiceProvider extends ServiceProvider
             ], 'lang');*/
 
             // Registering package commands.
-            // $this->commands([]);
+            $this->commands([
+                GenerateHelper::class
+            ]);
         }
     }
 

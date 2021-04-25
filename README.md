@@ -1,10 +1,11 @@
-# Very short description of the package
+# laravel-generate-helpers
+# Generate and autoload custome heplers, It can generate multilevel helpers in context of directory
 
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/dipeshsukhia/laravel-generate-helpers.svg?style=flat-square)](https://packagist.org/packages/dipeshsukhia/laravel-generate-helpers)
 [![Total Downloads](https://img.shields.io/packagist/dt/dipeshsukhia/laravel-generate-helpers.svg?style=flat-square)](https://packagist.org/packages/dipeshsukhia/laravel-generate-helpers)
 ![GitHub Actions](https://github.com/dipeshsukhia/laravel-generate-helpers/actions/workflows/main.yml/badge.svg)
 
-This is where your description should go. Try and limit it to a paragraph or two, and maybe throw in a mention of what PSRs you support to avoid any confusion with users and contributors.
+This package helps to generate and autoload custome heplers, It can generate multilevel helpers in context of directory.
 
 ## Installation
 
@@ -17,7 +18,11 @@ composer require dipeshsukhia/laravel-generate-helpers
 ## Usage
 
 ```php
-// Usage description here
+php artisan helper:generate common
+This will generate CommonHelper.php under App/Helper directory
+
+php artisan helper:generate module/stub
+This will generate Module/StubHelper.php under App/Helper/Module directory
 ```
 
 ### Testing
@@ -46,7 +51,3 @@ If you discover any security related issues, please email dipesh.sukhia@gmail.co
 ## License
 
 The MIT License (MIT). Please see [License File](LICENSE.md) for more information.
-
-## Laravel Package Boilerplate
-
-This package was generated using the [Laravel Package Boilerplate](https://laravelpackageboilerplate.com).
