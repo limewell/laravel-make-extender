@@ -2,7 +2,11 @@
 
 namespace DipeshSukhia\LaravelGenerateHelpers;
 
-use DipeshSukhia\LaravelGenerateHelpers\Console\Commands\{MakeHelperCommand, MakeServiceCommand, MakeTraitCommand};
+use DipeshSukhia\LaravelGenerateHelpers\Console\Commands\{MakeHelperCommand,
+    MakeScopeCommand,
+    MakeServiceCommand,
+    MakeTraitCommand
+};
 use Illuminate\Support\ServiceProvider;
 
 class LaravelGenerateHelpersServiceProvider extends ServiceProvider
@@ -47,6 +51,7 @@ class LaravelGenerateHelpersServiceProvider extends ServiceProvider
                 MakeHelperCommand::class,
                 MakeServiceCommand::class,
                 MakeTraitCommand::class,
+                MakeScopeCommand::class
             ]);
         }
     }

@@ -4,6 +4,8 @@
 
 # Generate Service class for process chunk of codes
 
+# Generate Global Scope class for Model
+
 # Generate Trait for process chunk of codes
 
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/dipeshsukhia/laravel-generate-helpers.svg?style=flat-square)](https://packagist.org/packages/dipeshsukhia/laravel-generate-helpers)
@@ -45,6 +47,13 @@ Usage
 ```php
 php artisan make:trait UserTrait
 This will generate UserTrait.php under App/Traits directory
+```
+
+## Generate Scope
+
+```php
+php artisan make:scope UserScope
+This will generate UserScope.php under App/Scopes directory
 ```
 
 ## Customize Stubs
