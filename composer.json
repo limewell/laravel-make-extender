@@ -1,6 +1,6 @@
 {
     "name": "dipeshsukhia/laravel-generate-helpers",
-    "description": "This package helps to generate and autoload custome heplers, It can generate multilevel helpers in context of directory.",
+    "description": "This package helps to generate and autoload custom helpers, It can generate multilevel helpers in context of directory.",
     "keywords": [
         "dipeshsukhia",
         "laravel-generate-helpers"
@@ -12,6 +12,11 @@
         {
             "name": "Dipesh Sukhia",
             "email": "dipesh.sukhia@gmail.com",
+            "role": "Developer"
+        },
+        {
+            "name": "Bhavin Gajjar",
+            "email": "gajjarbhavin22@gmail.com",
             "role": "Developer"
         }
     ],
@@ -36,7 +41,6 @@
     "scripts": {
         "test": "vendor/bin/phpunit",
         "test-coverage": "vendor/bin/phpunit --coverage-html coverage"
-
     },
     "config": {
         "sort-packages": true

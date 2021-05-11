@@ -1,4 +1,5 @@
 # laravel-generate-helpers
+
 # Generate and autoload custom helpers, It can generate multilevel helpers in the context of the directory.
 
 # Generate Service class for process chunk of codes
@@ -8,7 +9,8 @@
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/dipeshsukhia/laravel-generate-helpers.svg?style=flat-square)](https://packagist.org/packages/dipeshsukhia/laravel-generate-helpers)
 [![Total Downloads](https://img.shields.io/packagist/dt/dipeshsukhia/laravel-generate-helpers.svg?style=flat-square)](https://packagist.org/packages/dipeshsukhia/laravel-generate-helpers)
 
-This package helps to generate and autoload custom helpers, It can generate multilevel helpers in the context of the directory.
+This package helps to generate and autoload custom helpers, It can generate multilevel helpers in the context of the
+directory.
 
 ## Installation
 
@@ -21,28 +23,35 @@ composer require dipeshsukhia/laravel-generate-helpers
 ## Generate Helper file
 
 ```php
-php artisan generate:helper user
+php artisan make:helper UserHelper
 This will generate UserHelper.php under App/Helpers directory
 
-php artisan generate:helper module/user
+php artisan make:helper Module/UserHelper
 This will generate Module/UserHelper.php under App/Helpers/Module directory
 ```
-
 
 ## Generate Service
 
 ```php
-php artisan generate:service user
+php artisan make:service UserService
 This will generate UserService.php under App/Services directory
 
 Usage
 (new UserService())->handle();
 ```
+
 ## Generate Trait
 
 ```php
-php artisan generate:trait user
+php artisan make:trait UserTrait
 This will generate UserTrait.php under App/Traits directory
+```
+
+## Customize Stubs
+
+```php
+php artisan vendor:publish --provider="DipeshSukhia\LaravelGenerateHelpers\LaravelGenerateHelpersServiceProvider" --tag="stubs"
+This will export stubs into /stubs/vendor/laravel-generate-helpers for customization
 ```
 
 ### Changelog
@@ -59,8 +68,9 @@ If you discover any security related issues, please email dipesh.sukhia@gmail.co
 
 ## Credits
 
--   [Dipesh Sukhia](https://github.com/dipeshsukhia)
--   [All Contributors](../../contributors)
+- [Dipesh Sukhia](https://github.com/dipeshsukhia)
+- [Bhavin Gajjar](https://github.com/bhavingajjar)
+- [All Contributors](../../contributors)
 
 ## License
 
