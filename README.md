@@ -2,6 +2,9 @@
 # Generate and autoload custom helpers, It can generate multilevel helpers in the context of the directory.
 
 # Generate Service class for process chunk of codes
+
+# Generate Trait for process chunk of codes
+
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/dipeshsukhia/laravel-generate-helpers.svg?style=flat-square)](https://packagist.org/packages/dipeshsukhia/laravel-generate-helpers)
 [![Total Downloads](https://img.shields.io/packagist/dt/dipeshsukhia/laravel-generate-helpers.svg?style=flat-square)](https://packagist.org/packages/dipeshsukhia/laravel-generate-helpers)
 
