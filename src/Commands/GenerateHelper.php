@@ -1,6 +1,7 @@
 <?php
 
 namespace DipeshSukhia\LaravelGenerateHelpers\Commands;
+use Exception;
 use Illuminate\Console\Command;
 
 class GenerateHelper extends Command
@@ -10,7 +11,7 @@ class GenerateHelper extends Command
      *
      * @var string
      */
-    protected $signature = 'helper:generate {helper}';
+    protected $signature = 'generate:helper {helper}';
     /**
      * The console command description.
      *
@@ -31,9 +32,8 @@ class GenerateHelper extends Command
             $isInFolder = preg_match("/^(.*)\/([^\/]+)$/", $path, $pathMatches);
             if($isInFolder) {
                 $directory = $pathMatches[1];
-                $fileName = $pathMatches[2];
                 if (!is_dir($directory)) {
-                    mkdir($directory, 0777, true);
+                    mkdir($directory, 0755, true);
                 }
             }
             file_put_contents($path, $template);
@@ -45,9 +45,9 @@ class GenerateHelper extends Command
     /**
      * Execute the console command.
      *
-     * @return mixed
+     * @return bool
      */
-    public function handle()
+    public function handle():bool
     {
         if (empty($this->argument('helper'))) {
             $this->error('Helper Name Argument not found!');
@@ -62,7 +62,6 @@ class GenerateHelper extends Command
         }else {
             $this->error('Helper Already Exists!');
         }
-
         return true;
     }
 }

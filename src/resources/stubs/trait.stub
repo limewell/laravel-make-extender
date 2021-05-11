@@ -1,0 +1,16 @@
+<?php
+
+namespace App\Traits;
+
+trait {{TraitName}}Trait
+{
+    private static $className = self::class;
+
+    /**
+     * @return string
+     */
+    public static function handle(): string
+    {
+        return self::$className;
+    }
+}

@@ -1,9 +1,9 @@
 # laravel-generate-helpers
 # Generate and autoload custom helpers, It can generate multilevel helpers in the context of the directory.
 
+# Generate Service class for process chunk of codes
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/dipeshsukhia/laravel-generate-helpers.svg?style=flat-square)](https://packagist.org/packages/dipeshsukhia/laravel-generate-helpers)
 [![Total Downloads](https://img.shields.io/packagist/dt/dipeshsukhia/laravel-generate-helpers.svg?style=flat-square)](https://packagist.org/packages/dipeshsukhia/laravel-generate-helpers)
-![GitHub Actions](https://github.com/dipeshsukhia/laravel-generate-helpers/actions/workflows/main.yml/badge.svg)
 
 This package helps to generate and autoload custom helpers, It can generate multilevel helpers in the context of the directory.
 
@@ -15,20 +15,31 @@ You can install the package via composer:
 composer require dipeshsukhia/laravel-generate-helpers
 ```
 
-## Usage
+## Generate Helper file
 
 ```php
-php artisan helper:generate common
-This will generate CommonHelper.php under App/Helper directory
+php artisan generate:helper user
+This will generate UserHelper.php under App/Helpers directory
 
-php artisan helper:generate module/stub
-This will generate Module/StubHelper.php under App/Helper/Module directory
+php artisan generate:helper module/user
+This will generate Module/UserHelper.php under App/Helpers/Module directory
 ```
 
-### Testing
 
-```bash
-composer test
+## Generate Service
+
+```php
+php artisan generate:service user
+This will generate UserService.php under App/Services directory
+
+Usage
+(new UserService())->handle();
+```
+## Generate Trait
+
+```php
+php artisan generate:trait user
+This will generate UserTrait.php under App/Traits directory
 ```
 
 ### Changelog

@@ -1,0 +1,18 @@
+<?php
+
+namespace App\Services;
+
+class {{ServicesName}}Service
+{
+    protected $requestData;
+
+    public function __construct($requestData = null)
+    {
+        $this->requestData = $requestData;
+    }
+
+    public function handle()
+    {
+        return $this->requestData;
+    }
+}
