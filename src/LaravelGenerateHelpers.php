@@ -1,6 +1,6 @@
 <?php
 
-namespace DipeshSukhia\LaravelGenerateHelpers;
+namespace Limewell\LaravelGenerateHelpers;
 
 class LaravelGenerateHelpers
 {

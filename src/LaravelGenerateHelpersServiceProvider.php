@@ -1,8 +1,8 @@
 <?php
 
-namespace DipeshSukhia\LaravelGenerateHelpers;
+namespace Limewell\LaravelGenerateHelpers;
 
-use DipeshSukhia\LaravelGenerateHelpers\Console\Commands\{MakeHelperCommand,
+use Limewell\LaravelGenerateHelpers\Console\Commands\{MakeHelperCommand,
     MakeScopeCommand,
     MakeServiceCommand,
     MakeTraitCommand

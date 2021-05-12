@@ -1,6 +1,6 @@
 <?php
 
-namespace DipeshSukhia\LaravelGenerateHelpers;
+namespace Limewell\LaravelGenerateHelpers;
 
 use Illuminate\Support\Facades\Facade;
 

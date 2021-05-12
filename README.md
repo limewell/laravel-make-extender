@@ -8,8 +8,8 @@
 
 # Generate Trait for process chunk of codes
 
-[![Latest Version on Packagist](https://img.shields.io/packagist/v/dipeshsukhia/laravel-generate-helpers.svg?style=flat-square)](https://packagist.org/packages/dipeshsukhia/laravel-generate-helpers)
-[![Total Downloads](https://img.shields.io/packagist/dt/dipeshsukhia/laravel-generate-helpers.svg?style=flat-square)](https://packagist.org/packages/dipeshsukhia/laravel-generate-helpers)
+[![Latest Version on Packagist](https://img.shields.io/packagist/v/limewell/laravel-generate-helpers.svg?style=flat-square)](https://packagist.org/packages/limewell/laravel-generate-helpers)
+[![Total Downloads](https://img.shields.io/packagist/dt/limewell/laravel-generate-helpers.svg?style=flat-square)](https://packagist.org/packages/limewell/laravel-generate-helpers)
 
 This package helps to generate and autoload custom helpers, It can generate multilevel helpers in the context of the
 directory.
@@ -19,7 +19,7 @@ directory.
 You can install the package via composer:
 
 ```bash
-composer require dipeshsukhia/laravel-generate-helpers
+composer require limewell/laravel-generate-helpers
 ```
 
 ## Generate Helper file
@@ -59,7 +59,7 @@ This will generate UserScope.php under App/Scopes directory
 ## Customize Stubs
 
 ```php
-php artisan vendor:publish --provider="DipeshSukhia\LaravelGenerateHelpers\LaravelGenerateHelpersServiceProvider" --tag="stubs"
+php artisan vendor:publish --provider="Limewell\LaravelGenerateHelpers\LaravelGenerateHelpersServiceProvider" --tag="stubs"
 This will export stubs into /stubs/vendor/laravel-generate-helpers for customization
 ```
 

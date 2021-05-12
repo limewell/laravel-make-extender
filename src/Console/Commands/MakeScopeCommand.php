@@ -1,6 +1,6 @@
 <?php
 
-namespace DipeshSukhia\LaravelGenerateHelpers\Console\Commands;
+namespace Limewell\LaravelGenerateHelpers\Console\Commands;
 
 use Illuminate\Console\GeneratorCommand;
 use Illuminate\Contracts\Filesystem\FileNotFoundException;
