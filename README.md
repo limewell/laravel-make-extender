@@ -1,12 +1,12 @@
 # laravel-make-extender
 
-# Generate and autoload custom helpers, It can generate multilevel helpers in the context of the directory.
+## Generate and autoload custom helpers, It can generate multilevel helpers in the context of the directory.
 
-# Generate Service class for process chunk of codes
+## Generate Service class for process chunk of codes
 
-# Generate Global Scope class for Model
+## Generate Trait for process chunk of codes
 
-# Generate Trait for process chunk of codes
+## Generate Global Scope class for Model
 
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/limewell/laravel-make-extender.svg?style=flat-square)](https://packagist.org/packages/limewell/laravel-make-extender)
 [![Total Downloads](https://img.shields.io/packagist/dt/limewell/laravel-make-extender.svg?style=flat-square)](https://packagist.org/packages/limewell/laravel-make-extender)
@@ -70,10 +70,6 @@ Please see [CHANGELOG](CHANGELOG.md) for more information what has changed recen
 ## Contributing
 
 Please see [CONTRIBUTING](CONTRIBUTING.md) for details.
-
-### Security
-
-If you discover any security related issues, please email dipesh.sukhia@gmail.com instead of using the issue tracker.
 
 ## Credits
 

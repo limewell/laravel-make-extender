@@ -2,6 +2,6 @@
 
 All notable changes to `laravel-make-extender` will be documented in this file
 
-## 1.0.0 - 201X-XX-XX
+## 1.0.0 - 2021-05-12
 
-- initial release
+- stable release
