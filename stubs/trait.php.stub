@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Traits;
+namespace DummyNamespace;
 
-trait {{TraitName}}Trait
+trait DummyClass
 {
     private static $className = self::class;
 

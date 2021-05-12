@@ -2,9 +2,11 @@
 
 namespace DipeshSukhia\LaravelGenerateHelpers;
 
-use DipeshSukhia\LaravelGenerateHelpers\Commands\GenerateHelper;
-use DipeshSukhia\LaravelGenerateHelpers\Commands\GenerateService;
-use DipeshSukhia\LaravelGenerateHelpers\Commands\GenerateTrait;
+use DipeshSukhia\LaravelGenerateHelpers\Console\Commands\{MakeHelperCommand,
+    MakeScopeCommand,
+    MakeServiceCommand,
+    MakeTraitCommand
+};
 use Illuminate\Support\ServiceProvider;
 
 class LaravelGenerateHelpersServiceProvider extends ServiceProvider
@@ -39,11 +41,17 @@ class LaravelGenerateHelpersServiceProvider extends ServiceProvider
         }, self::getHelpers(app_path('Helpers')));
 
         if ($this->app->runningInConsole()) {
+            // Publishing the stub files.
+            $this->publishes([
+                __DIR__ . '/../stubs' => base_path('stubs/vendor/laravel-generate-helpers'),
+            ], 'stubs');
+
             // Registering package commands.
             $this->commands([
-                GenerateHelper::class,
-                GenerateService::class,
-                GenerateTrait::class,
+                MakeHelperCommand::class,
+                MakeServiceCommand::class,
+                MakeTraitCommand::class,
+                MakeScopeCommand::class
             ]);
         }
     }

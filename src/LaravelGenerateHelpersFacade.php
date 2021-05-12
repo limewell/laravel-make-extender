@@ -4,9 +4,6 @@ namespace DipeshSukhia\LaravelGenerateHelpers;
 
 use Illuminate\Support\Facades\Facade;
 
-/**
- * @see \DipeshSukhia\LaravelGenerateHelpers\Skeleton\SkeletonClass
- */
 class LaravelGenerateHelpersFacade extends Facade
 {
     /**
@@ -14,7 +11,7 @@ class LaravelGenerateHelpersFacade extends Facade
      *
      * @return string
      */
-    protected static function getFacadeAccessor()
+    protected static function getFacadeAccessor(): string
     {
         return 'laravel-generate-helpers';
     }

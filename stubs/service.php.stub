@@ -1,16 +1,23 @@
 <?php
 
-namespace App\Services;
+namespace DummyNamespace;
 
-class {{ServicesName}}Service
+class DummyClass
 {
     protected $requestData;
 
+    /**
+     * UserService constructor.
+     * @param null $requestData
+     */
     public function __construct($requestData = null)
     {
         $this->requestData = $requestData;
     }
 
+    /**
+     * @return null
+     */
     public function handle()
     {
         return $this->requestData;
