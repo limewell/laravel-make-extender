@@ -1,10 +1,10 @@
 <?php
 
-namespace Limewell\LaravelGenerateHelpers;
+namespace Limewell\LaravelMakeExtender;
 
 use Illuminate\Support\Facades\Facade;
 
-class LaravelGenerateHelpersFacade extends Facade
+class LaravelMakeExtenderFacade extends Facade
 {
     /**
      * Get the registered name of the component.
@@ -13,6 +13,6 @@ class LaravelGenerateHelpersFacade extends Facade
      */
     protected static function getFacadeAccessor(): string
     {
-        return 'laravel-generate-helpers';
+        return 'laravel-make-extender';
     }
 }

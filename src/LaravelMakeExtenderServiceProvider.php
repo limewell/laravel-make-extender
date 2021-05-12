@@ -1,15 +1,15 @@
 <?php
 
-namespace Limewell\LaravelGenerateHelpers;
+namespace Limewell\LaravelMakeExtender;
 
-use Limewell\LaravelGenerateHelpers\Console\Commands\{MakeHelperCommand,
+use Limewell\LaravelMakeExtender\Console\Commands\{MakeHelperCommand,
     MakeScopeCommand,
     MakeServiceCommand,
     MakeTraitCommand
 };
 use Illuminate\Support\ServiceProvider;
 
-class LaravelGenerateHelpersServiceProvider extends ServiceProvider
+class LaravelMakeExtenderServiceProvider extends ServiceProvider
 {
     /**
      * @param $dir
@@ -43,7 +43,7 @@ class LaravelGenerateHelpersServiceProvider extends ServiceProvider
         if ($this->app->runningInConsole()) {
             // Publishing the stub files.
             $this->publishes([
-                __DIR__ . '/../stubs' => base_path('stubs/vendor/laravel-generate-helpers'),
+                __DIR__ . '/../stubs' => base_path('stubs/vendor/laravel-make-extender'),
             ], 'stubs');
 
             // Registering package commands.
@@ -62,11 +62,11 @@ class LaravelGenerateHelpersServiceProvider extends ServiceProvider
     public function register()
     {
         // Automatically apply the package configuration
-        $this->mergeConfigFrom(__DIR__ . '/../config/config.php', 'laravel-generate-helpers');
+        $this->mergeConfigFrom(__DIR__ . '/../config/config.php', 'laravel-make-extender');
 
         // Register the main class to use with the facade
-        $this->app->singleton('laravel-generate-helpers', function () {
-            return new LaravelGenerateHelpers;
+        $this->app->singleton('laravel-make-extender', function () {
+            return new LaravelMakeExtender;
         });
     }
 }

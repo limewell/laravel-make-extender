@@ -1,6 +1,6 @@
 <?php
 
-namespace Limewell\LaravelGenerateHelpers\Console\Commands;
+namespace Limewell\LaravelMakeExtender\Console\Commands;
 
 use Illuminate\Console\GeneratorCommand;
 use Illuminate\Contracts\Filesystem\FileNotFoundException;
@@ -18,7 +18,7 @@ class MakeTraitCommand extends GeneratorCommand
      */
     protected function getStub(): string
     {
-        if (file_exists($stubPath = base_path("stubs/vendor/laravel-generate-helpers/trait.stub"))) {
+        if (file_exists($stubPath = base_path("stubs/vendor/laravel-make-extender/trait.stub"))) {
             return $stubPath;
         } else {
             return __DIR__ . "/../../../stubs/trait.php.stub";

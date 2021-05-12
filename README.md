@@ -1,4 +1,4 @@
-# laravel-generate-helpers
+# laravel-make-extender
 
 # Generate and autoload custom helpers, It can generate multilevel helpers in the context of the directory.
 
@@ -8,8 +8,8 @@
 
 # Generate Trait for process chunk of codes
 
-[![Latest Version on Packagist](https://img.shields.io/packagist/v/limewell/laravel-generate-helpers.svg?style=flat-square)](https://packagist.org/packages/limewell/laravel-generate-helpers)
-[![Total Downloads](https://img.shields.io/packagist/dt/limewell/laravel-generate-helpers.svg?style=flat-square)](https://packagist.org/packages/limewell/laravel-generate-helpers)
+[![Latest Version on Packagist](https://img.shields.io/packagist/v/limewell/laravel-make-extender.svg?style=flat-square)](https://packagist.org/packages/limewell/laravel-make-extender)
+[![Total Downloads](https://img.shields.io/packagist/dt/limewell/laravel-make-extender.svg?style=flat-square)](https://packagist.org/packages/limewell/laravel-make-extender)
 
 This package helps to generate and autoload custom helpers, It can generate multilevel helpers in the context of the
 directory.
@@ -19,7 +19,7 @@ directory.
 You can install the package via composer:
 
 ```bash
-composer require limewell/laravel-generate-helpers
+composer require limewell/laravel-make-extender
 ```
 
 ## Generate Helper file
@@ -59,8 +59,8 @@ This will generate UserScope.php under App/Scopes directory
 ## Customize Stubs
 
 ```php
-php artisan vendor:publish --provider="Limewell\LaravelGenerateHelpers\LaravelGenerateHelpersServiceProvider" --tag="stubs"
-This will export stubs into /stubs/vendor/laravel-generate-helpers for customization
+php artisan vendor:publish --provider="Limewell\LaravelMakeExtender\LaravelMakeExtenderServiceProvider" --tag="stubs"
+This will export stubs into /stubs/vendor/laravel-make-extender for customization
 ```
 
 ### Changelog

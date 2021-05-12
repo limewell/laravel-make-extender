@@ -1,6 +1,6 @@
 <?php
 
-namespace Limewell\LaravelGenerateHelpers\Console\Commands;
+namespace Limewell\LaravelMakeExtender\Console\Commands;
 
 use Illuminate\Console\GeneratorCommand;
 use Illuminate\Contracts\Filesystem\FileNotFoundException;
@@ -18,7 +18,7 @@ class MakeHelperCommand extends GeneratorCommand
      */
     protected function getStub(): string
     {
-        if (file_exists($stubPath = base_path("stubs/vendor/laravel-generate-helpers/helper.php.stub"))) {
+        if (file_exists($stubPath = base_path("stubs/vendor/laravel-make-extender/helper.php.stub"))) {
             return $stubPath;
         } else {
             return __DIR__ . "/../../../stubs/helper.php.stub";
