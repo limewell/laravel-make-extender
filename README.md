@@ -55,7 +55,7 @@ This will generate UserTrait.php under App/Traits directory
 php artisan make:scope UserScope
 This will generate UserScope.php under App/Scopes directory
 
-find out more for how to use global scopes from here, https://laravel.com/docs/8.x/eloquent#global-scopes
+find out more for how to use global scopes [see documentation](https://laravel.com/docs/8.x/eloquent#global-scopes),
 ```
 
 ## Customize Stubs
