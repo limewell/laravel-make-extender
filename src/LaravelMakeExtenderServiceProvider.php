@@ -2,10 +2,13 @@
 
 namespace Limewell\LaravelMakeExtender;
 
-use Limewell\LaravelMakeExtender\Console\Commands\{MakeHelperCommand,
-    MakeScopeCommand,
+use Limewell\LaravelMakeExtender\Console\Commands\{
+    MakeHelperCommand,
     MakeServiceCommand,
-    MakeTraitCommand
+    MakeTraitCommand,
+    MakeScopeCommand,
+    MakeCastCommand,
+    MakeMacroCommand
 };
 use Illuminate\Support\ServiceProvider;
 
@@ -13,22 +16,22 @@ class LaravelMakeExtenderServiceProvider extends ServiceProvider
 {
     /**
      * @param $dir
-     * @param array $helpers
+     * @param array $files
      * @return array
      */
-    private function getHelpers($dir, array &$helpers = []): array
+    private function getIncludes($dir, array &$files = []): array
     {
         if (is_dir($dir)) {
             foreach (scandir($dir) as $inode) {
                 $path = realpath($dir . DIRECTORY_SEPARATOR . $inode);
                 if (!is_dir($path)) {
-                    !(pathinfo($path, PATHINFO_EXTENSION) === "php") ?: array_push($helpers, $path);
+                    !(pathinfo($path, PATHINFO_EXTENSION) === "php") ?: array_push($files, $path);
                 } elseif (!in_array($inode, [".", ".."])) {
-                    self::getHelpers($path, $helpers);
+                    self::getIncludes($path, $files);
                 }
             }
         }
-        return $helpers;
+        return $files;
     }
 
     /**
@@ -36,9 +39,19 @@ class LaravelMakeExtenderServiceProvider extends ServiceProvider
      */
     public function boot()
     {
+        /*
+         * include helpers
+         * */
         array_map(function ($helper) {
             require_once($helper);
-        }, self::getHelpers(app_path('Helpers')));
+        }, self::getIncludes(app_path('Helpers')));
+
+        /*
+         * include macros
+         * */
+        array_map(function ($helper) {
+            require_once($helper);
+        }, self::getIncludes(app_path('Macros')));
 
         if ($this->app->runningInConsole()) {
             // Publishing the stub files.
@@ -51,7 +64,9 @@ class LaravelMakeExtenderServiceProvider extends ServiceProvider
                 MakeHelperCommand::class,
                 MakeServiceCommand::class,
                 MakeTraitCommand::class,
-                MakeScopeCommand::class
+                MakeScopeCommand::class,
+                MakeMacroCommand::class,
+                MakeCastCommand::class
             ]);
         }
     }

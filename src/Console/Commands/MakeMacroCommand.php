@@ -4,24 +4,21 @@ namespace Limewell\LaravelMakeExtender\Console\Commands;
 
 use Illuminate\Console\GeneratorCommand;
 use Illuminate\Contracts\Filesystem\FileNotFoundException;
-use Symfony\Component\Console\Input\InputOption;
 
-class MakeServiceCommand extends GeneratorCommand
+class MakeMacroCommand extends GeneratorCommand
 {
-    protected $name = 'make:service';
+    protected $name = 'make:macro';
 
-    protected $description = 'Create a new service class';
+    protected $description = 'Create a new macro';
 
-    protected $type = 'Service';
+    protected $type = 'Macro';
 
     /**
      * @return string
      */
     protected function getStub(): string
     {
-        return $this->option('invokable')
-            ? $this->resolveStubPath('service.invokable.stub')
-            : $this->resolveStubPath('service.stub');
+        return $this->resolveStubPath('macro.stub');
     }
 
     /**
@@ -43,7 +40,7 @@ class MakeServiceCommand extends GeneratorCommand
      */
     protected function getDefaultNamespace($rootNamespace): string
     {
-        return $rootNamespace . '\Services';
+        return $rootNamespace . '\Macros';
     }
 
     /**
@@ -59,17 +56,5 @@ class MakeServiceCommand extends GeneratorCommand
         }
 
         return true;
-    }
-
-    /**
-     * Get the console command options.
-     *
-     * @return array
-     */
-    protected function getOptions()
-    {
-        return [
-            ['invokable', null, InputOption::VALUE_NONE, 'Indicates that service should be invokable'],
-        ];
     }
 }

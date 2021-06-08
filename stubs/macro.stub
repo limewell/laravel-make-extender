@@ -1,0 +1,14 @@
+<?php
+
+namespace DummyNamespace;
+
+use Illuminate\Support\Collection;
+use Illuminate\Support\Str;
+
+if (!Collection::hasMacro('DummyClass')) {
+    Collection::macro('DummyClass', function ($locale = null) {
+        return $this->map(function ($value) use ($locale) {
+             //return Str::upper($value);
+        });
+    });
+}

@@ -18,11 +18,20 @@ class MakeTraitCommand extends GeneratorCommand
      */
     protected function getStub(): string
     {
-        if (file_exists($stubPath = base_path("stubs/vendor/laravel-make-extender/trait.stub"))) {
-            return $stubPath;
-        } else {
-            return __DIR__ . "/../../../stubs/trait.php.stub";
-        }
+        return $this->resolveStubPath('trait.stub');
+    }
+
+    /**
+     * Resolve the fully-qualified path to the stub.
+     *
+     * @param string $stub
+     * @return string
+     */
+    protected function resolveStubPath(string $stub): string
+    {
+        return file_exists($customPath = $this->laravel->basePath("stubs/vendor/laravel-make-extender/".$stub))
+            ? $customPath
+            : __DIR__. "/../../../stubs/".$stub;
     }
 
     /**
