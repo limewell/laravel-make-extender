@@ -2,10 +2,12 @@
 
 namespace Limewell\LaravelMakeExtender;
 
-use Limewell\LaravelMakeExtender\Console\Commands\{MakeHelperCommand,
-    MakeScopeCommand,
+use Limewell\LaravelMakeExtender\Console\Commands\{
+    MakeHelperCommand,
     MakeServiceCommand,
-    MakeTraitCommand
+    MakeTraitCommand,
+    MakeScopeCommand,
+    MakeCastCommand
 };
 use Illuminate\Support\ServiceProvider;
 
@@ -51,7 +53,8 @@ class LaravelMakeExtenderServiceProvider extends ServiceProvider
                 MakeHelperCommand::class,
                 MakeServiceCommand::class,
                 MakeTraitCommand::class,
-                MakeScopeCommand::class
+                MakeScopeCommand::class,
+                MakeCastCommand::class
             ]);
         }
     }

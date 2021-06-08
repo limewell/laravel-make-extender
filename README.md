@@ -4,6 +4,7 @@
 2. Generate Service class for process chunk of codes
 3. Generate Trait for process chunk of codes
 4. Generate Global Scope class for Model
+5. Generate Custom Casts
 
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/limewell/laravel-make-extender.svg?style=flat-square)](https://packagist.org/packages/limewell/laravel-make-extender)
 [![Total Downloads](https://img.shields.io/packagist/dt/limewell/laravel-make-extender.svg?style=flat-square)](https://packagist.org/packages/limewell/laravel-make-extender)
@@ -65,6 +66,16 @@ php artisan make:scope UserScope
 This will generate UserScope.php under App/Scopes directory
 
 see document [here](https://laravel.com/docs/8.x/eloquent#global-scopes) for how to use global scopes
+
+
+## Generate Custom Casts
+
+```php
+php artisan make:cast JsonCast
+```
+This will generate JsonCast.php under App/Casts directory
+
+see document [here](https://laravel.com/docs/8.x/eloquent-mutators#custom-casts) for how to use Custom Casts
 
 ## Customize Stubs
 
