@@ -5,6 +5,7 @@
 3. Generate Trait for process chunk of codes
 4. Generate Global Scope class for Model
 5. Generate Custom Casts
+6. Generate Collections Macros
 
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/limewell/laravel-make-extender.svg?style=flat-square)](https://packagist.org/packages/limewell/laravel-make-extender)
 [![Total Downloads](https://img.shields.io/packagist/dt/limewell/laravel-make-extender.svg?style=flat-square)](https://packagist.org/packages/limewell/laravel-make-extender)
@@ -22,63 +23,63 @@ composer require limewell/laravel-make-extender
 
 ## Generate Helper file
 
+Generate UserHelper.php under App/Helpers directory
 ```php
 php artisan make:helper UserHelper
 ```
-This will generate UserHelper.php under App/Helpers directory
+Generate Module/UserHelper.php under App/Helpers/Module directory
 ```php
 php artisan make:helper Module/UserHelper
 ```
-This will generate Module/UserHelper.php under App/Helpers/Module directory
+
 
 
 ## Generate Service
-
+Generate UserService.php under App/Services directory
 ```php
 php artisan make:service UserService
 ```
 ```php
 (new UserService())->handle();
 ```
-This will generate UserService.php under App/Services directory
 
+Generate invokable UserService.php under App/Services directory
 ```php
 php artisan make:service UserService --invokable
 ```
 ```php
 (new UserService())();
 ```
-This will generate invokable UserService.php under App/Services directory
 
 ## Generate Trait
-
+Generate UserTrait.php under App/Traits directory
 ```php
 php artisan make:trait UserTrait
 ```
-This will generate UserTrait.php under App/Traits directory
-
 
 ## Generate Scope
-
+Generate UserScope.php under App/Scopes directory
 ```php
 php artisan make:scope UserScope
 ```
-This will generate UserScope.php under App/Scopes directory
-
 see document [here](https://laravel.com/docs/8.x/eloquent#global-scopes) for how to use global scopes
 
 
 ## Generate Custom Casts
-
+Generate JsonCast.php under App/Casts directory
 ```php
 php artisan make:cast JsonCast
 ```
-This will generate JsonCast.php under App/Casts directory
-
 see document [here](https://laravel.com/docs/8.x/eloquent-mutators#custom-casts) for how to use Custom Casts
 
-## Customize Stubs
+## Generate Collections Macro
+Generate toUpper.php under App/Macros directory
+```php
+php artisan make:macro toUpper
+```
+see document [here](https://laravel.com/docs/8.x/collections#extending-collections) for how to use Macro
 
+## Customize Stubs
 ```php
 php artisan vendor:publish --provider="Limewell\LaravelMakeExtender\LaravelMakeExtenderServiceProvider" --tag="stubs"
 ```
@@ -86,7 +87,6 @@ This will export stubs into /stubs/vendor/laravel-make-extender for customizatio
 
 
 ### Changelog
-
 Please see [CHANGELOG](CHANGELOG.md) for more information what has changed recently.
 
 ## Contributing
@@ -100,5 +100,4 @@ Please see [CONTRIBUTING](CONTRIBUTING.md) for details.
 - [All Contributors](../../contributors)
 
 ## License
-
 The MIT License (MIT). Please see [License File](LICENSE.md) for more information.
