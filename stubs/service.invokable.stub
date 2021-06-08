@@ -1,0 +1,25 @@
+<?php
+
+namespace DummyNamespace;
+
+class DummyClass
+{
+    protected $requestData;
+
+    /**
+     * UserService constructor.
+     * @param null $requestData
+     */
+    public function __construct($requestData = null)
+    {
+        $this->requestData = $requestData;
+    }
+
+    /**
+     * @return null
+     */
+    public function __invoke()
+    {
+        return $this->requestData;
+    }
+}

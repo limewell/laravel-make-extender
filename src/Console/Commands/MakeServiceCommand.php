@@ -4,6 +4,7 @@ namespace Limewell\LaravelMakeExtender\Console\Commands;
 
 use Illuminate\Console\GeneratorCommand;
 use Illuminate\Contracts\Filesystem\FileNotFoundException;
+use Symfony\Component\Console\Input\InputOption;
 
 class MakeServiceCommand extends GeneratorCommand
 {
@@ -18,11 +19,22 @@ class MakeServiceCommand extends GeneratorCommand
      */
     protected function getStub(): string
     {
-        if (file_exists($stubPath = base_path("stubs/vendor/laravel-make-extender/service.php.stub"))) {
-            return $stubPath;
-        } else {
-            return __DIR__ . "/../../../stubs/service.php.stub";
-        }
+        return $this->option('invokable')
+            ? $this->resolveStubPath('service.invokable.stub')
+            : $this->resolveStubPath('service.stub');
+    }
+
+    /**
+     * Resolve the fully-qualified path to the stub.
+     *
+     * @param string $stub
+     * @return string
+     */
+    protected function resolveStubPath(string $stub): string
+    {
+        return file_exists($customPath = $this->laravel->basePath("stubs/vendor/laravel-make-extender/".$stub))
+            ? $customPath
+            : __DIR__. "/../../../stubs/".$stub;
     }
 
     /**
@@ -47,5 +59,17 @@ class MakeServiceCommand extends GeneratorCommand
         }
 
         return true;
+    }
+
+    /**
+     * Get the console command options.
+     *
+     * @return array
+     */
+    protected function getOptions()
+    {
+        return [
+            ['invokable', null, InputOption::VALUE_NONE, 'Indicates that service should be invokable'],
+        ];
     }
 }
