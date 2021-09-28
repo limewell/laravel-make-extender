@@ -76,7 +76,7 @@ class LaravelMakeExtenderServiceProvider extends ServiceProvider
             ], 'stubs');
 
             $this->publishes([
-                __DIR__ . '/../config' => base_path('config/viewcomposers.php'),
+                __DIR__ . '/../config/viewcomposers.php' => base_path('config/viewcomposers.php'),
             ], 'config');
 
             // Registering package commands.
