@@ -8,3 +8,6 @@ All notable changes to `laravel-make-extender` will be documented in this file
 
 1.0.1 - 2021-06-08
 - invokable  service, cast, collection macro 
+
+1.0.2 - 2021-09-88
+- View composers
