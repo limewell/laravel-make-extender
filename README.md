@@ -6,6 +6,7 @@
 4. Generate Global Scope class for Model
 5. Generate Custom Casts
 6. Generate Collections Macros
+7. Generate View Composers
 
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/limewell/laravel-make-extender.svg?style=flat-square)](https://packagist.org/packages/limewell/laravel-make-extender)
 [![Total Downloads](https://img.shields.io/packagist/dt/limewell/laravel-make-extender.svg?style=flat-square)](https://packagist.org/packages/limewell/laravel-make-extender)
@@ -78,6 +79,31 @@ Generate toUpper.php under App/Macros directory
 php artisan make:macro toUpper
 ```
 see document [here](https://laravel.com/docs/8.x/collections#extending-collections) for how to use Macro
+
+
+## Generate View composers
+Generate config file for register view composers
+```php
+php artisan vendor:publish --provider="Limewell\LaravelMakeExtender\LaravelMakeExtenderServiceProvider" --tag="config"
+```
+
+Generate view composers class
+```php
+php artisan make:composer MovieComposer
+```
+Register view composers Edit config (config/viewcomposers.php)
+
+```php
+use App\ViewComposers\MovieComposer;
+
+return [
+    MovieComposer::class => [
+      'view1','view2'
+    ],
+];
+```
+
+see document [here](https://laravel.com/docs/8.x/views#view-composers) for how to use View Composers
 
 ## Customize Stubs
 ```php

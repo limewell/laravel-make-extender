@@ -14,12 +14,12 @@ class DummyClass
     /**
      * Bind data to the view.
      *
-     * @param  \Illuminate\View\View  $view
+     * @param View $view
      * @return void
      */
     public function compose(View $view)
     {
-        $data = [];
-        $view->with(compact($data));
+        $data = ['view','compose'];
+        $view->with('data',$data);
     }
 }
