@@ -8,7 +8,8 @@ use Limewell\LaravelMakeExtender\Console\Commands\{
     MakeTraitCommand,
     MakeScopeCommand,
     MakeCastCommand,
-    MakeMacroCommand
+    MakeMacroCommand,
+    MakeViewComposerCommand
 };
 use Illuminate\Support\ServiceProvider;
 
@@ -32,6 +33,19 @@ class LaravelMakeExtenderServiceProvider extends ServiceProvider
             }
         }
         return $files;
+    }
+
+    /**
+     * Register the application view composer.
+     *
+     * @return void
+     */
+    public function ViewComposer()
+    {
+        $composers = config('viewcomposers', []);
+        foreach ($composers as $composer => $views) {
+            $this->app->make('view')->composer($views, $composer);
+        }
     }
 
     /**
@@ -59,6 +73,10 @@ class LaravelMakeExtenderServiceProvider extends ServiceProvider
                 __DIR__ . '/../stubs' => base_path('stubs/vendor/laravel-make-extender'),
             ], 'stubs');
 
+            $this->publishes([
+                __DIR__ . '/../config' => base_path('config/viewcomposers.php'),
+            ], 'config');
+
             // Registering package commands.
             $this->commands([
                 MakeHelperCommand::class,
@@ -66,7 +84,8 @@ class LaravelMakeExtenderServiceProvider extends ServiceProvider
                 MakeTraitCommand::class,
                 MakeScopeCommand::class,
                 MakeMacroCommand::class,
-                MakeCastCommand::class
+                MakeCastCommand::class,
+                MakeViewComposerCommand::class
             ]);
         }
     }
@@ -76,6 +95,7 @@ class LaravelMakeExtenderServiceProvider extends ServiceProvider
      */
     public function register()
     {
+        self::ViewComposer();
         // Automatically apply the package configuration
         $this->mergeConfigFrom(__DIR__ . '/../config/config.php', 'laravel-make-extender');
 
