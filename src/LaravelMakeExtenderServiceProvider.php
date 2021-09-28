@@ -43,8 +43,10 @@ class LaravelMakeExtenderServiceProvider extends ServiceProvider
     public function ViewComposer()
     {
         $composers = config('viewcomposers', []);
-        foreach ($composers as $composer => $views) {
-            $this->app->make('view')->composer($views, $composer);
+        if(count($composers)) {
+            foreach ($composers as $composer => $views) {
+                $this->app->make('view')->composer($views, $composer);
+            }
         }
     }
 
