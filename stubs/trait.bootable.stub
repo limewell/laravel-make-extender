@@ -1,0 +1,62 @@
+<?php
+
+namespace DummyNamespace;
+
+trait DummyClass
+{
+    private static $className = self::class;
+
+    /**
+     * @return void
+     */
+    public static function bootDummyClass()
+    {
+        static::creating(function($model){
+            // $model
+        });
+
+        static::updating(function($model) {
+            // $model
+        });
+
+        static::saving(function($model) {
+            // $model
+        });
+
+        static::deleting(function($model) {
+            // $model
+        });
+
+        static::restoring(function($model) {
+            // $model
+        });
+
+        static::created(function($model){
+            // $model
+        });
+
+        static::updated(function($model) {
+            // $model
+        });
+
+        static::saved(function($model) {
+            // $model
+        });
+
+        static::deleted(function($model) {
+            // $model
+        });
+
+        static::forceDeleted(function($model) {
+            // $model
+        });
+
+        static::restored(function($model) {
+            // $model
+        });
+
+        static::retrieved(function($model){
+            // $model
+        });
+    }
+}
