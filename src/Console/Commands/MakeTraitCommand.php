@@ -4,6 +4,7 @@ namespace Limewell\LaravelMakeExtender\Console\Commands;
 
 use Illuminate\Console\GeneratorCommand;
 use Illuminate\Contracts\Filesystem\FileNotFoundException;
+use Symfony\Component\Console\Input\InputOption;
 
 class MakeTraitCommand extends GeneratorCommand
 {
@@ -18,7 +19,9 @@ class MakeTraitCommand extends GeneratorCommand
      */
     protected function getStub(): string
     {
-        return $this->resolveStubPath('trait.stub');
+        return $this->option('bootable')
+            ? $this->resolveStubPath('trait.bootable.stub')
+            : $this->resolveStubPath('trait.stub');
     }
 
     /**
@@ -56,5 +59,17 @@ class MakeTraitCommand extends GeneratorCommand
         }
 
         return true;
+    }
+
+    /**
+     * Get the console command options.
+     *
+     * @return array
+     */
+    protected function getOptions()
+    {
+        return [
+            ['bootable', null, InputOption::VALUE_NONE, 'Indicates that trait should be bootable'],
+        ];
     }
 }
