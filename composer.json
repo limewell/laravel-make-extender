@@ -1,6 +1,6 @@
 {
     "name": "limewell/laravel-make-extender",
-    "description": "This package helps to generate and autoload custom helpers, It can generate multilevel helpers in context of directory.",
+    "description": "This package helps to generate and autoload custom helpers, It can generate multilevel helpers in the context of the directory.",
     "keywords": [
         "limewell",
         "laravel-make-extender"
@@ -22,11 +22,11 @@
     ],
     "require": {
         "php": ">=7.1.3",
-        "illuminate/support": "^5.8|^6.0|^7.0|^8.0|^9.0"        
+        "illuminate/support": "^5.8|^6.0|^7.0|^8.0|^9.0|^10.0"        
     },
     "require-dev": {
-        "orchestra/testbench": "^6.0",
-        "phpunit/phpunit": "^9.0"
+        "orchestra/testbench": "^8.0",
+        "phpunit/phpunit": "^9.0|^10.0"
     },
     "autoload": {
         "psr-4": {
