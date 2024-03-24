@@ -100,10 +100,5 @@ class LaravelMakeExtenderServiceProvider extends ServiceProvider
         self::ViewComposer();
         // Automatically apply the package configuration
         $this->mergeConfigFrom(__DIR__ . '/../config/config.php', 'laravel-make-extender');
-
-        // Register the main class to use with the facade
-        $this->app->singleton('laravel-make-extender', function () {
-            return new LaravelMakeExtender;
-        });
     }
 }
